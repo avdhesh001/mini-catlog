@@ -1,4 +1,4 @@
-import React, { useCallback, useLayoutEffect } from 'react';
+import React, { useCallback, useLayoutEffect, useMemo } from 'react';
 import {
   View,
   Text,
@@ -8,6 +8,7 @@ import {
   RefreshControl,
   ActivityIndicator,
   TextInput,
+  ListRenderItem,
 } from 'react-native';
 import { useProducts, Product } from '../api/products';
 import { useDispatch, useSelector } from 'react-redux';
@@ -16,6 +17,39 @@ import { RootState } from '../store';
 import { useNavigation } from '@react-navigation/native';
 import { useTranslation } from 'react-i18next';
 import { toggleLanguage } from '../i18n';
+
+const ProductItem = React.memo(function ProductItem({
+  item,
+  isFavorite,
+  onToggleFavorite,
+  onPress,
+}: {
+  item: Product;
+  isFavorite: boolean;
+  onToggleFavorite: (id: string) => void;
+  onPress: (id: string) => void;
+}) {
+  return (
+    <TouchableOpacity
+      accessibilityLabel={item.title}
+      style={{ flexDirection: 'row', padding: 12, alignItems: 'center' }}
+      onPress={() => onPress(item.id)}
+    >
+      <Image
+        accessibilityLabel={item.title}
+        source={{ uri: item.thumbnail }}
+        style={{ width: 64, height: 64, borderRadius: 8, marginRight: 12 }}
+      />
+      <View style={{ flex: 1 }}>
+        <Text numberOfLines={1}>{item.title}</Text>
+        <Text>${item.price.toFixed(2)}</Text>
+      </View>
+      <TouchableOpacity accessibilityLabel="favorite" onPress={() => onToggleFavorite(item.id)}>
+        <Text style={{ fontSize: 18 }}>{isFavorite ? '♥' : '♡'}</Text>
+      </TouchableOpacity>
+    </TouchableOpacity>
+  );
+});
 
 export default function ProductListScreen() {
   const { data, isLoading, isFetching, refetch, error } = useProducts();
@@ -41,6 +75,32 @@ export default function ProductListScreen() {
     refetch();
   }, [refetch]);
 
+  // Memoized derived data and handlers declared before conditional returns to keep hook order stable
+  const filtered = useMemo(() => {
+    const source = data || [];
+    if (!query && !category) return source;
+    const q = query.toLowerCase();
+    return source.filter((p) => {
+      const matchQuery = q ? p.title.toLowerCase().includes(q) : true;
+      const matchCat = category ? p.category === category : true;
+      return matchQuery && matchCat;
+    });
+  }, [data, query, category]);
+
+  const handleToggleFavorite = useCallback(
+    (id: string) => {
+      dispatch(toggleFavorite(id));
+    },
+    [dispatch],
+  );
+
+  const handlePressItem = useCallback(
+    (id: string) => {
+      navigation.navigate('ProductDetails', { id });
+    },
+    [navigation],
+  );
+
   if (isLoading) {
     return (
       <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
@@ -60,40 +120,30 @@ export default function ProductListScreen() {
     );
   }
 
-  const filtered = (data || []).filter((p) => {
-    const matchQuery = p.title.toLowerCase().includes(query.toLowerCase());
-    const matchCat = category ? p.category === category : true;
-    return matchQuery && matchCat;
-  });
+  const renderItem: ListRenderItem<Product> = useCallback(
+    ({ item }) => (
+      <ProductItem
+        item={item}
+        isFavorite={Boolean(favorites[item.id])}
+        onToggleFavorite={handleToggleFavorite}
+        onPress={handlePressItem}
+      />
+    ),
+    [favorites, handleToggleFavorite, handlePressItem],
+  );
+
+  const keyExtractor = useCallback((item: Product) => item.id, []);
 
   return (
     <FlatList
       data={filtered}
-      keyExtractor={(item) => item.id}
+      keyExtractor={keyExtractor}
       refreshControl={<RefreshControl refreshing={isFetching} onRefresh={onRefresh} />}
-      renderItem={({ item }: { item: Product }) => (
-        <TouchableOpacity
-          accessibilityLabel={item.title}
-          style={{ flexDirection: 'row', padding: 12, alignItems: 'center' }}
-          onPress={() => navigation.navigate('ProductDetails', { id: item.id })}
-        >
-          <Image
-            accessibilityLabel={item.title}
-            source={{ uri: item.thumbnail }}
-            style={{ width: 64, height: 64, borderRadius: 8, marginRight: 12 }}
-          />
-          <View style={{ flex: 1 }}>
-            <Text numberOfLines={1}>{item.title}</Text>
-            <Text>${item.price.toFixed(2)}</Text>
-          </View>
-          <TouchableOpacity
-            accessibilityLabel="favorite"
-            onPress={() => dispatch(toggleFavorite(item.id))}
-          >
-            <Text style={{ fontSize: 18 }}>{favorites[item.id] ? '♥' : '♡'}</Text>
-          </TouchableOpacity>
-        </TouchableOpacity>
-      )}
+      renderItem={renderItem}
+      initialNumToRender={8}
+      maxToRenderPerBatch={8}
+      windowSize={5}
+      removeClippedSubviews
       ListHeaderComponent={() => (
         <View style={{ padding: 12 }}>
           <TextInput
