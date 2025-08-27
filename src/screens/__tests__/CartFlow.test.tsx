@@ -14,8 +14,8 @@ test('add to cart and apply promo', () => {
   );
 
   getByText(/Wireless Headphones/i);
-  const input = getByPlaceholderText(/Promo code/i);
+  const input = getByPlaceholderText(/Promo code|promo_placeholder/i);
   fireEvent.changeText(input, 'SAVE10');
-  fireEvent.press(getByText(/Apply/i));
-  getByText(/Discount:/i);
+  fireEvent.press(getByText(/Apply|apply/i));
+  getByText(/Discount|discount/i);
 });

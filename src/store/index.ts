@@ -1,7 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { configureStore, combineReducers } from '@reduxjs/toolkit';
 import { persistReducer, persistStore } from 'redux-persist';
-import thunk from 'redux-thunk';
 import cartReducer from '../features/cart/cartSlice';
 import favoritesReducer from '../features/products/favoritesSlice';
 
@@ -20,7 +19,8 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
-  middleware: [thunk],
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({ serializableCheck: false, immutableCheck: false }),
 });
 
 export const persistor = persistStore(store);

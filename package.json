@@ -60,6 +60,9 @@
     "preset": "jest-expo",
     "transformIgnorePatterns": [
       "node_modules/(?!((jest-)?react-native|@react-native|react-native|react-redux|expo(nent)?|@expo(nent)?|expo-modules-core|@expo/config|@react-navigation|react-native-reanimated|@react-native-async-storage)/)"
+    ],
+    "setupFilesAfterEnv": [
+      "<rootDir>/jest.setup.ts"
     ]
   },
   "lint-staged": {
