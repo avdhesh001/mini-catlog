@@ -1,0 +1,20 @@
+{
+  "title": "الكتالوج",
+  "add_to_cart": "أضف إلى السلة",
+  "total": "الإجمالي",
+  "subtotal": "الإجمالي الفرعي",
+  "discount": "الخصم",
+  "apply": "تطبيق",
+  "promo_placeholder": "رمز الخصم",
+  "cart": "السلة",
+  "favorites": "المفضلة",
+  "products": "المنتجات",
+  "retry": "إعادة المحاولة",
+  "empty_list": "لا توجد منتجات",
+  "pull_to_refresh": "اسحب للتحديث",
+  "quantity": "الكمية",
+  "language": "اللغة",
+  "english": "الإنجليزية",
+  "arabic": "العربية",
+  "search": "بحث"
+}

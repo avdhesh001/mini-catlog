@@ -1,0 +1,20 @@
+{
+  "title": "Catalog",
+  "add_to_cart": "Add to Cart",
+  "total": "Total",
+  "subtotal": "Subtotal",
+  "discount": "Discount",
+  "apply": "Apply",
+  "promo_placeholder": "Promo code",
+  "cart": "Cart",
+  "favorites": "Favorites",
+  "products": "Products",
+  "retry": "Retry",
+  "empty_list": "No products",
+  "pull_to_refresh": "Pull to refresh",
+  "quantity": "Quantity",
+  "language": "Language",
+  "english": "English",
+  "arabic": "Arabic",
+  "search": "Search"
+}

@@ -1,0 +1,158 @@
+[
+  {
+    "id": "p-1001",
+    "title": "Wireless Headphones",
+    "price": 199.99,
+    "rating": 4.4,
+    "category": "audio",
+    "thumbnail": "https://picsum.photos/seed/p1001/600/400",
+    "images": [
+      "https://picsum.photos/seed/p1001a/1200/800",
+      "https://picsum.photos/seed/p1001b/1200/800"
+    ],
+    "description": "ANC, 30h battery, BT 5.3"
+  },
+  {
+    "id": "p-1002",
+    "title": "Bluetooth Speaker",
+    "price": 89.99,
+    "rating": 4.2,
+    "category": "audio",
+    "thumbnail": "https://picsum.photos/seed/p1002/600/400",
+    "images": [
+      "https://picsum.photos/seed/p1002a/1200/800",
+      "https://picsum.photos/seed/p1002b/1200/800"
+    ],
+    "description": "Portable, waterproof, 12h battery"
+  },
+  {
+    "id": "p-1003",
+    "title": "Smart Watch",
+    "price": 149.0,
+    "rating": 4.1,
+    "category": "wearables",
+    "thumbnail": "https://picsum.photos/seed/p1003/600/400",
+    "images": [
+      "https://picsum.photos/seed/p1003a/1200/800",
+      "https://picsum.photos/seed/p1003b/1200/800"
+    ],
+    "description": "Heart rate, GPS, 5ATM"
+  },
+  {
+    "id": "p-1004",
+    "title": "Gaming Mouse",
+    "price": 59.99,
+    "rating": 4.6,
+    "category": "accessories",
+    "thumbnail": "https://picsum.photos/seed/p1004/600/400",
+    "images": [
+      "https://picsum.photos/seed/p1004a/1200/800",
+      "https://picsum.photos/seed/p1004b/1200/800"
+    ],
+    "description": "RGB, 6 buttons, 16K DPI"
+  },
+  {
+    "id": "p-1005",
+    "title": "Mechanical Keyboard",
+    "price": 129.99,
+    "rating": 4.5,
+    "category": "accessories",
+    "thumbnail": "https://picsum.photos/seed/p1005/600/400",
+    "images": [
+      "https://picsum.photos/seed/p1005a/1200/800",
+      "https://picsum.photos/seed/p1005b/1200/800"
+    ],
+    "description": "Hot-swappable, RGB, compact"
+  },
+  {
+    "id": "p-1006",
+    "title": "USB-C Hub",
+    "price": 39.99,
+    "rating": 4.0,
+    "category": "accessories",
+    "thumbnail": "https://picsum.photos/seed/p1006/600/400",
+    "images": [
+      "https://picsum.photos/seed/p1006a/1200/800",
+      "https://picsum.photos/seed/p1006b/1200/800"
+    ],
+    "description": "7-in-1, 4K HDMI, PD 100W"
+  },
+  {
+    "id": "p-1007",
+    "title": "4K Monitor",
+    "price": 329.99,
+    "rating": 4.3,
+    "category": "displays",
+    "thumbnail": "https://picsum.photos/seed/p1007/600/400",
+    "images": [
+      "https://picsum.photos/seed/p1007a/1200/800",
+      "https://picsum.photos/seed/p1007b/1200/800"
+    ],
+    "description": "IPS, 60Hz, HDR10"
+  },
+  {
+    "id": "p-1008",
+    "title": "Wireless Charger",
+    "price": 24.99,
+    "rating": 4.1,
+    "category": "accessories",
+    "thumbnail": "https://picsum.photos/seed/p1008/600/400",
+    "images": [
+      "https://picsum.photos/seed/p1008a/1200/800",
+      "https://picsum.photos/seed/p1008b/1200/800"
+    ],
+    "description": "15W fast charge"
+  },
+  {
+    "id": "p-1009",
+    "title": "Noise-canceling Earbuds",
+    "price": 129.0,
+    "rating": 4.2,
+    "category": "audio",
+    "thumbnail": "https://picsum.photos/seed/p1009/600/400",
+    "images": [
+      "https://picsum.photos/seed/p1009a/1200/800",
+      "https://picsum.photos/seed/p1009b/1200/800"
+    ],
+    "description": "ANC, wireless charging"
+  },
+  {
+    "id": "p-1010",
+    "title": "Portable SSD 1TB",
+    "price": 99.99,
+    "rating": 4.7,
+    "category": "storage",
+    "thumbnail": "https://picsum.photos/seed/p1010/600/400",
+    "images": [
+      "https://picsum.photos/seed/p1010a/1200/800",
+      "https://picsum.photos/seed/p1010b/1200/800"
+    ],
+    "description": "USB 3.2, 1050MB/s"
+  },
+  {
+    "id": "p-1011",
+    "title": "Smartphone Gimbal",
+    "price": 119.99,
+    "rating": 4.3,
+    "category": "photo",
+    "thumbnail": "https://picsum.photos/seed/p1011/600/400",
+    "images": [
+      "https://picsum.photos/seed/p1011a/1200/800",
+      "https://picsum.photos/seed/p1011b/1200/800"
+    ],
+    "description": "3-axis, foldable"
+  },
+  {
+    "id": "p-1012",
+    "title": "Action Camera",
+    "price": 249.99,
+    "rating": 4.4,
+    "category": "photo",
+    "thumbnail": "https://picsum.photos/seed/p1012/600/400",
+    "images": [
+      "https://picsum.photos/seed/p1012a/1200/800",
+      "https://picsum.photos/seed/p1012b/1200/800"
+    ],
+    "description": "4K60, waterproof"
+  }
+]
